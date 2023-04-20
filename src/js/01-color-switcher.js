@@ -7,16 +7,14 @@ const btnStop = document.querySelector('button[data-stop]');
 
 const isColorChanging = false;
 
-startButton.addEventListener('click', () => {
+btnStart.addEventListener('click', () => {
     if (!isColorChanging) {
-        isColorChanging = true;
-        startButton.disabled = true;
+        btnStart.disabled = true;
         const intervalId = setInterval(() => {
             document.body.style.backgroundColor = getRandomHexColor();
         }, 1000);
-        stopButton.addEventListener('click', () => {
+        btnStop.addEventListener('click', () => {
             clearInterval(intervalId);
-            isColorChanging = false;
             startButton.disabled = false;
         })
     }

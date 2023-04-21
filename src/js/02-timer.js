@@ -46,3 +46,5 @@ const startBtnClick = () => {
         console.log(1681471457000 - Date.now());
     }, 1000);
 }
+
+startBtn.addEventListener('click', startBtnClick);

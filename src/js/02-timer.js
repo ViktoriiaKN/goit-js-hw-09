@@ -14,10 +14,7 @@ const minutesEl = document.querySelector('[data-minutes]');
 const secondsEl = document.querySelector('[data-seconds]');
 let timerId;
 
-daysEl.textContent = `${daysEl}`;
-hoursEl.textContent = `${hoursEl}`;
-minutesEl.textContent = `${minutesEl}`;
-secondsEl.textContent = `${secondsEl}`;
+
 
 startBtn.setAttribute('disabled', true);
 
@@ -49,7 +46,7 @@ const startBtnClick = () => {
             return;
         } 
         const convertedTime = convertMs(differentTime);
-        
+        renderDate(convertedTime); // Рендеринг дати на сторінці
         console.log(convertedTime);
     }, 1000);
 }
@@ -78,3 +75,10 @@ function convertMs(ms) {
 console.log(convertMs(2000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
 console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
 console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
+
+const renderDate = ({ days, hours, minutes, seconds }) => {
+  daysEl.textContent = days.toString().padStart(2, '0');
+  hoursEl.textContent = hours.toString().padStart(2, '0');
+  minutesEl.textContent = minutes.toString().padStart(2, '0');
+  secondsEl.textContent = seconds.toString().padStart(2, '0');
+};

@@ -33,17 +33,19 @@ if (selectedDates[0].getTime() - options.defaultDate.getTime() > 0) {
     },
 };
 
-flatpickr(dateInput, options);
+const datePicker = flatpickr(dateInput, options);
 
 const startBtnClick = () => {
     startBtn.setAttribute('disabled', true);
-    timerId - setInterval(() => {
-        if (1681471457000 - Date.now() < 0) {
+    timerId = setInterval(() => {
+        const differentTime = datePicker.selectedDates[0].getTime() - Date.now()
+        if (differentTime < 1000) {
             clearInterval(timerId);
-        } else {
-            convertMs(1681471457000 - Date.now());
-        }
-        console.log(1681471457000 - Date.now());
+            return;
+        } 
+        const convertedTime = convertMs(differentTime);
+        
+        console.log(convertedTime);
     }, 1000);
 }
 

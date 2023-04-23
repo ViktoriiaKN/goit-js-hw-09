@@ -14,6 +14,11 @@ const minutesEl = document.querySelector('[data-minutes]');
 const secondsEl = document.querySelector('[data-seconds]');
 let timerId;
 
+daysEl.textContent = `${daysEl}`;
+hoursEl.textContent = `${hoursEl}`;
+minutesEl.textContent = `${minutesEl}`;
+secondsEl.textContent = `${secondsEl}`;
+
 startBtn.setAttribute('disabled', true);
 
 const options = {

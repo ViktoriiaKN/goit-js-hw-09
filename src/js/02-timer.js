@@ -43,6 +43,7 @@ const startBtnClick = () => {
         const differentTime = datePicker.selectedDates[0].getTime() - Date.now()
         if (differentTime < 1000) {
             clearInterval(timerId);
+            renderDate({ days: 0, hours: 0, minutes: 0, seconds: 0 }); // Оновлюємо значення дати на 00:00:00:00
             return;
         } 
         const convertedTime = convertMs(differentTime);
